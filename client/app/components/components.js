@@ -1,10 +1,14 @@
 import angular from 'angular';
-import Home from './home/home';
-import About from './about/about';
+import Orders from './orders/orders';
+import Archives from './archives/archives';
+import Inventory from './inventory/inventory';
+import Reports from './reports/reports';
 
 let componentModule = angular.module('app.components', [
-  Home,
-  About
+  Orders,
+  Archives,
+  Inventory,
+  Reports
 ])
 
 .name;

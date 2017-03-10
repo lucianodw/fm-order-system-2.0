@@ -1,7 +1,20 @@
-@import "common/common";
+// --- ITCSS PARADIGM ---
 
-.app {
-  height: 100%;
-  background-color: $lightBgColor;
-}
+//--- Settings ----
+@import "common/settings";
+
+//--- Tools ----
+@import "common/tools";
+
+//--- Generics ----
+@import "common/generics";
+
+//--- Elements ----
+@import "common/elements";
+
+//--- Objects ----
+@import "common/objects";
+
+//--- Components ----
+@import "common/components";
 

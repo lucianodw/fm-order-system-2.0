@@ -1,0 +1,12 @@
+// --- Objects ---
+// Class-based selectors which define undecorated design patterns, for example media object known from OOCSS
+@import '../../../node_modules/bootstrap/scss/bootstrap';
+
+.app {
+  height: 100%;
+}
+
+.main-container {
+  padding-top: 60px;
+}
+

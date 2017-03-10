@@ -1,8 +1,35 @@
-<nav class="navbar">
-  <div class="logo">
-    <h1><a ui-sref="home">{{ $ctrl.name }}</a></h1>
-  </div>
-  <div class="nav-links">
-    <span><a ui-sref="about">about</a></span>
+<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse fixed-top">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="#">{{ $ctrl.name }}</a>
+
+  <div class="collapse navbar-collapse" id="navbar">
+    <ul class="navbar-nav mr-auto">
+
+      <!-- Desktop Navigation-->
+      <li class="nav-item active">
+        <a class="nav-link" ui-sref="orders">Orders</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" ui-sref="archives">Archives</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" ui-sref="inventory">Inventory</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" ui-sref="reports">Reports</a>
+      </li>
+
+      <!-- Mobile Navigation -->
+      <li class="nav-item dropdown">
+        <div class="dropdown-menu" aria-labelledby="mobileDropdown">
+          <a class="dropdown-item" ui-sref="orders">Orders</a>
+          <a class="dropdown-item" ui-sref="archives">Archives</a>
+          <a class="dropdown-item" ui-sref="inventory">Inventory</a>
+          <a class="dropdown-item" ui-sref="reports">Reports</a>
+        </div>
+      </li>
+    </ul>
   </div>
 </nav>

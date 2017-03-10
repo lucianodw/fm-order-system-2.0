@@ -1,0 +1,39 @@
+<main class="main-container container">
+  <div>
+    <h1>Orders</h1>
+  </div>
+
+  <div>
+
+    <table ng-table="$ctrl.params"
+           show-filter="false"
+           class="table table-hover ng-table-responsive">
+      <tbody>
+
+        <tr ng-repeat="order in $ctrl.orders" ng-class-odd="odd" ng-class-even="even">
+          <td data-title="'Order'">{{order.id}}</td>
+          <td data-title="'Status'">
+            <change-order-status status="order.status"
+                                 on-update="$ctrl.updateStatus($event)">
+            </change-order-status>
+          </td>
+          <td data-title="'Order Date'">{{order.date}}</td>
+          <td data-title="'Name'">{{order.user.lastName}}, {{order.user.firstName}}</td>
+          <td data-title="'Order Type'">{{order.user.tag}}</td>
+          <td data-title="'Order Total'">${{order.order.total | number: 2}}</td>
+          <td data-title="'Total Actions'">
+            <a href="#/orders/view/{{order.id}}" class='btn btn-primary'>View Order</a>
+            <a href="#/orders/edit/{{order.id}}" class='btn btn-info'>
+              <span class="hidden-xs">Edit</span>
+              <span class="visible-xs"><i class="fa fa-pencil"></i></span>
+            </a>
+          </td>
+        </tr>
+        <tr ng-if="!$ctrl.orders">
+          <td colspan="5" class="no-matches">No Active Orders.</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</main>
