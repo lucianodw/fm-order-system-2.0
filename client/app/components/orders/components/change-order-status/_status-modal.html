@@ -1,0 +1,19 @@
+<div class="modal-header">
+  <h3 class="modal-title" id="modal-title">I'm a modal!</h3>
+</div>
+<div class="modal-body" id="modal-body">
+  <a href ng-click="$ctrl.setStatus('In Progress')"
+     class="btn btn-default btn-stack col-xs-12"
+     ng-class="{'btn-warning': $ctrl.status == 'In Progress'}">
+    In Store
+  </a>
+
+  <a href
+     ng-click="$ctrl.setStatus('Complete')"
+     class="btn btn-default btn-stack col-xs-12"
+     ng-class="{'btn-success': $ctrl.status == 'Complete'}">
+    Picked Up
+  </a>
+</div>
+<div class="modal-footer">
+</div>

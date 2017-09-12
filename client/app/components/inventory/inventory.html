@@ -1,5 +1,71 @@
 <main class="main-container container">
   <div>
-    <h1>Inventory</h1>
+    <h1>Inventory Management</h1>
+  </div>
+
+  <section>
+    <add-inventory on-add="$ctrl.addItem()"
+                   list-total="$ctrl.listTotal"></add-inventory>
+  </section>
+
+  <div>
+
+    <table ng-table="$ctrl.params"
+           show-filter="false"
+           class="table table-hover ng-table-responsive">
+      <tbody>
+
+      <tr ng-repeat="item in $ctrl.items track by $index" ng-class-odd="odd" ng-class-even="even">
+        <td data-title="'Slot #'">
+          {{item.slot}}
+          <a href class="btn btn-default" ng-click="$ctrl.moveUp($index)" ng-show="!$first">
+            <i class="fa fa-arrow-up"></i>
+          </a>
+          <a href class="btn btn-default" ng-click="$ctrl.moveDown($index)" ng-show="!$last">
+            <i class="fa fa-arrow-down"></i>
+          </a>
+        </td>
+        <td data-title="'Item #'">{{item.id}}</td>
+        <td data-title="'Name'">
+          <span ng-show="$ctrl.edit !== item.id">{{item.name}}</span>
+          <input type="text" class="form-control" id="name" name="name" placeholder="Item Name" ng-model="item.name" ng-show="$ctrl.edit === item.id">
+        </td>
+        <td data-title="'Unit'" ng-show="$ctrl.edit !== item.id">{{item.unit}}</td>
+        <td ng-show="$ctrl.edit === item.id">
+          <select name="" id="item-unit" class="form-control"  ng-model="item.unit" ng-required="true">
+            <option value="">-----</option>
+            <option value="LB">Pound</option>
+            <option value="Foot">Foot</option>
+            <option value="Tray">Tray</option>
+            <option value="Special">Special</option>
+          </select>
+        </td>
+        <td data-title="'Category'">{{item.category}}</td>
+        <td data-title="'Status'">
+          <span class="label label-default"
+                ng-class="{'label-success': item.status === 'active'}">
+            {{item.status}}
+          </span>
+        </td>
+        <td data-title="'Actions'">
+          <a href class='btn btn-info' ng-click="$ctrl.editItem(item.id)" ng-show="$ctrl.edit !== item.id">
+            <span class="hidden-xs">Edit</span>
+            <span class="visible-xs"><i class="fa fa-save"></i></span>
+          </a>
+          <a href class='btn btn-success' ng-click="$ctrl.saveItem(item.id)" ng-show="$ctrl.edit === item.id">
+            <span class="hidden-xs">Save</span>
+            <span class="visible-xs"><i class="fa fa-save"></i></span>
+          </a>
+          <a href class='btn btn-danger' ng-click="$ctrl.removeItem(item.id)" ng-show="$ctrl.edit !== item.id">
+            <span class="hidden-xs">Remove</span>
+            <span class="visible-xs"><i class="fa fa-close"></i></span></a>
+        </td>
+      </tr>
+      <tr ng-if="!$ctrl.items">
+        <td colspan="7" class="no-matches">No Inventory Items.</td>
+      </tr>
+      </tbody>
+    </table>
+
   </div>
 </main>

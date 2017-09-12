@@ -14,6 +14,7 @@
           <td data-title="'Order'">{{order.id}}</td>
           <td data-title="'Status'">
             <change-order-status status="order.status"
+                                 id="order.id"
                                  on-update="$ctrl.updateStatus($event)">
             </change-order-status>
           </td>
@@ -22,8 +23,8 @@
           <td data-title="'Order Type'">{{order.user.tag}}</td>
           <td data-title="'Order Total'">${{order.order.total | number: 2}}</td>
           <td data-title="'Total Actions'">
-            <a href="#/orders/view/{{order.id}}" class='btn btn-primary'>View Order</a>
-            <a href="#/orders/edit/{{order.id}}" class='btn btn-info'>
+            <a href ui-sref="view({id: order.id})" class='btn btn-primary'>View Order</a>
+            <a href ui-sref="edit({id: order.id})" class='btn btn-info'>
               <span class="hidden-xs">Edit</span>
               <span class="visible-xs"><i class="fa fa-pencil"></i></span>
             </a>

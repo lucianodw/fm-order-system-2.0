@@ -1,3 +1,19 @@
-.inventory {
-  color: red;
+.inventory-create-container {
+  background: #efefef none repeat scroll 0 0;
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 15px;
+
+  table {
+    margin-bottom: 0px;
+  }
+
+  td {
+    border-top: 0px !important;
+  }
+}
+
+
+.btn-inline--no-label {
+  margin-top: 25px;
 }

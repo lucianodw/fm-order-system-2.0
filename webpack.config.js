@@ -4,7 +4,17 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   devtool: 'source-map',
-  entry: {},
+  entry: {
+    vendor: [
+      "angular",
+      "angular-animate",
+      "angular-touch",
+      "angular-ui-bootstrap",
+      "angular-ui-router",
+      "firebase",
+      "ng-table",
+    ]
+  },
   module: {
     loaders: [
        { test: /\.js$/, exclude: [/app\/lib/, /node_modules/], loader: 'ng-annotate!babel' },

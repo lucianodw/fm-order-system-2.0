@@ -1,0 +1,40 @@
+<ng-form name="inventoryForm" class="inventory-create-container col-xs-12">
+  <table class="table">
+    <tbody>
+    <tr>
+      <td>
+        <label for="name">Item Name</label>
+        <input type="text" class="form-control" id="name" name="name" placeholder="Item Name" ng-model="$ctrl.item.name" ng-required="true">
+      </td>
+      <td>
+        <label for="item-unit">Unit</label>
+        <select name="" id="item-unit" class="form-control"  ng-model="$ctrl.item.unit" ng-required="true">
+          <option value="">-----</option>
+          <option value="LB">Pound</option>
+          <option value="Foot">Foot</option>
+          <option value="Tray">Tray</option>
+          <option value="Special">Special</option>
+        </select>
+      </td>
+      <td>
+        <label for="item-category">Category</label>
+        <select name="" id="item-category" class="form-control"  ng-model="$ctrl.item.category" ng-required="true">
+          <option value="">-----</option>
+          <option value="Full">Full Dinner</option>
+          <option value="Single">Single Item</option>
+        </select>
+      </td>
+      <td>
+        <label for="item-status">Status</label>
+        <select name="" id="item-status" class="form-control"  ng-model="$ctrl.item.status" ng-required="true">
+          <option value="active">Active</option>
+          <option value="hidden">Hidden</option>
+        </select>
+      </td>
+      <td>
+        <a href ng-click="$ctrl.saveItem()" class='btn btn-success btn-inline--no-label'>Add Item</a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</ng-form>

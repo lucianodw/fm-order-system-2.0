@@ -1,1 +1,10 @@
-{{$ctrl.status}}
+<a href class="label label-default"
+        ng-class="{'label-warning': $ctrl.status === 'In Progress',
+              'label-success': $ctrl.status === 'Complete'}"
+        ng-click="$ctrl.openModal()">
+  {{$ctrl.status}}
+</a>
+
+<div class="fm-modal">
+  <!-- Modal Inserted Here -->
+</div>

@@ -1,0 +1,30 @@
+<main class="main-container container">
+  <div>
+    <h1>Settings</h1>
+  </div>
+
+  <div>
+    <h4>Tax Rate (NJ) - {{$ctrl.taxRate}}%</h4>
+    <section class="input-group col-xs-12 col-sm-2" ng-show="$ctrl.edit['tax']">
+      <input type="text" class="form-control input-xs" aria-label="Amount (to the nearest dollar)" ng-model="$ctrl.taxRate">
+      <span class="input-group-addon">%</span>
+    </section>
+
+    <section ng-show="$ctrl.edit['tax']">
+      <span class="btn btn-success btn-sm" ng-click="$ctrl.saveTax()">Save</span>
+    </section>
+
+    <section class="input-group col-xs-12 col-sm-2" ng-show="!$ctrl.edit['tax']">
+      <span class="btn btn-info btn-sm" ng-click="$ctrl.editTax()">Change</span>
+    </section>
+
+
+
+
+    <!--<div ng-show="!$ctrl.edit['tax']">-->
+    <!--{{$ctrl.taxRate}}% <small><a href ng-click="$ctrl.editTax()">Edit</a></small>-->
+    <!--</div>-->
+    <!-- Add Tax Component Here -->
+
+  </div>
+</main>

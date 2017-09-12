@@ -1,4 +1,3 @@
-import { FIREBASE_API_KEY, FIREBASE_AUTH_DOMAIN, FIREBASE_DATABASE, FIREBASE_STORAGE_BUCKET } from '../../constants/firebase.constants';
 import firebase from 'firebase';
 
 class OrdersService {
@@ -9,15 +8,6 @@ class OrdersService {
     // --- Dependencies ---
     this.$q = $q;
 
-    let config = {
-      apiKey: FIREBASE_API_KEY,
-      authDomain: FIREBASE_AUTH_DOMAIN,
-      databaseURL: FIREBASE_DATABASE,
-      storageBucket: FIREBASE_STORAGE_BUCKET
-    };
-
-    firebase.initializeApp(config);
-
     this.database = firebase.database();
     console.log('rootRef', this.database);
 
@@ -26,16 +16,36 @@ class OrdersService {
 
   // --- Service Functions ---
 
+  // Get All Orders
   getOrders() {
     let deferred = this.$q.defer();
+    let orders = this.database.ref('/orders');
 
-    this.orders = this.database.ref('/orders');
-
-    this.orders.on('value', function(snapshot) {
+    orders.on('value', function(snapshot) {
       deferred.resolve(snapshot.val());
     });
 
     return deferred.promise;
+  }
+
+  // Get Single Order by ID
+  getOrder(id) {
+    let deferred = this.$q.defer();
+    let order = this.database.ref('/orders/' + id);
+
+    order.on('value', function(snapshot) {
+      deferred.resolve(snapshot.val());
+    });
+
+    return deferred.promise;
+  }
+
+
+  saveStatus(status, id) {
+    let updates = {};
+    updates['/orders/' + id + '/status'] = status;
+
+    return this.database.ref().update(updates);
   }
 
 }

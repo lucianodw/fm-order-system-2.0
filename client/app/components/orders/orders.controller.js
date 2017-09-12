@@ -26,6 +26,15 @@ class OrdersController {
     }, { dataset: this.orders});
   }
 
+  // --- Local Methods ---
+  updateStatus(event) {
+    this.orders[event.id].status = event.status;
+
+    this.OrdersService.saveStatus(event.status, event.id).then(result => {
+      console.log('finished update', result)
+    });
+  }
+
 }
 
 export default OrdersController;

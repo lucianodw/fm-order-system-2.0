@@ -1,9 +1,16 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
+
+import InventoryService from '../../services/inventory/inventory';
+import AddInventory from './components/add-inventory/add-inventory';
+
 import inventoryComponent from './inventory.component';
 
 let inventoryModule = angular.module('inventory', [
-  uiRouter
+    uiRouter,
+    'ngTable',
+    InventoryService.name,
+    AddInventory
 ])
 
 .config(($stateProvider, $urlRouterProvider) => {
